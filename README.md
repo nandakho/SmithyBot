@@ -1,0 +1,2 @@
+# RRL
+Rebels Discord Bot
