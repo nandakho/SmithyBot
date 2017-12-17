@@ -26,7 +26,6 @@ var fs = require('fs');
 http.createServer(function(request, response) {
     var url = request.url;
     getStaticFileContent(response,'master/index.html','text/html');
-    break;
 });
 
 function getStaticFileContent(response, filepath, contentType){
