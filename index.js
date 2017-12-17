@@ -22,6 +22,11 @@ const rhelp = [
 ];
 
 var http = require("http");
+http.createServer(function(request, response) {
+    var url = request.url;
+    getStaticFileContent(response,'index.html','text/html');
+});
+        
 setInterval(function() {
     http.get("http://rebels-bot.herokuapp.com");
 }, 300000); // every 5 minutes (300000)
