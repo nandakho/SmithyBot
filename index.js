@@ -25,8 +25,8 @@ var http = require("http");
 var fs = require('fs');
 http.createServer(function(request, response) {
     var url = request.url;
-    getStaticFileContent(response,'index.html','text/html');
-}).listen(3000);
+    getStaticFileContent(response,'./index.html','text/html');
+});
 
 function getStaticFileContent(response, filepath, contentType){
     fs.readFile(filepath, function(error, data){
