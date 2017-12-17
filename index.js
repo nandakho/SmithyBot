@@ -25,7 +25,7 @@ var http = require("http");
 var fs = require('fs');
 http.createServer(function(request, response) {
     var url = request.url;
-    getStaticFileContent(response,'./index.html','text/html');
+    getStaticFileContent(response,'master/index.html','text/html');
 });
 
 function getStaticFileContent(response, filepath, contentType){
