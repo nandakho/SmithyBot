@@ -26,6 +26,7 @@ var fs = require('fs');
 http.createServer(function(request, response) {
     var url = request.url;
     getStaticFileContent(response,'master/index.html','text/html');
+    break;
 });
 
 function getStaticFileContent(response, filepath, contentType){
@@ -33,17 +34,20 @@ function getStaticFileContent(response, filepath, contentType){
         if(error){
             response.writeHead(500,{'Content-Type':'text/plain'});
             response.end('500 - Internal Server Error.');
+            break;
         }
         if(data){
             response.writeHead(200,{'Content-Type':'text/html'});
             response.end(data);
+            break;
         }
     });
 }
         
 setInterval(function() {
     http.get("http://rebels-bot.herokuapp.com");
-}, 300000); // every 5 minutes (300000)
+}, 300000);
+break; // every 5 minutes (300000)
 
 var titan =  [];
 var tithp = ['','1m','963k','1.14m','1.21m','2.56m','1.35m','1.278m','1.49m','1.56m','3.26m','2m','1.89m','2.2m','2.3m','4.8m','2.5m','2.34m','2.7m','2.8m','5.8m','3.57m','3.321m','3.81m','3.93m','8.1m','4.67m','4.311m','4.91m','5.03m','10.3m','6.2m','5.715m','6.5m','6.65m','13.606m','7.45m','6.84m','7.75m','7.9m','16.1m','9.6m','8.82m','10m','10.2m','20.8m','11.1m','10.17m','11.5m','11.7m','23.8m'];
