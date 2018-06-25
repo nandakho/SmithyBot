@@ -73,6 +73,9 @@ client.on('message',message => {
         case 'help':
             message.channel.sendMessage(help);
             break;
+        case 'resurrect':
+            message.channel.sendMessage('Sorry, it is beyond my ability to resurrect '+args[1])
+            break;
         case 'raid':
             if(args[1]) {
                 switch(args[1].toLowerCase()){
