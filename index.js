@@ -80,7 +80,8 @@ client.on('message',message => {
         case 'ehp':
             var eHPH = args[1];
             var eHPD = args[2];
-            var eHP1 = eHPD+1200;
+            var eHPV = 1200;
+            var eHP1 = eHPD+eHPV;
             var eHP2 = eHPD/eHP1;
             var eHP3 = 1-eHP2;
             var eHPF = eHPH/eHP3;
