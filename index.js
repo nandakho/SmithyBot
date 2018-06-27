@@ -77,9 +77,9 @@ client.on('message',message => {
             message.channel.sendMessage('Sorry, it is beyond my ability to resurrect '+args[1])
             break;
         case 'eHP':
-            var eHPH = args[2];
-            var eHPD = args[3];
-            message.channel.sendMessage('eHP: '+(eHPH/(1-(eHPD/(eHPD+1200)))));
+            var eHPH = args[1];
+            var eHPD = args[2];
+            message.channel.sendMessage('eHP: ');
             break;
         case 'raid':
             if(args[1]) {
