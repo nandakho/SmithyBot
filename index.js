@@ -76,6 +76,11 @@ client.on('message',message => {
         case 'resurrect':
             message.channel.sendMessage('Sorry, it is beyond my ability to resurrect '+args[1])
             break;
+        case 'eHP':
+            var eHPH = args[2];
+            var eHPD = args[3];
+            message.channe.sendMessage('eHP: '+(eHPH/(1-(eHPD/(eHPD+1200)))));
+            break;
         case 'raid':
             if(args[1]) {
                 switch(args[1].toLowerCase()){
