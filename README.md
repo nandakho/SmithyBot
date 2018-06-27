@@ -1,2 +1,2 @@
-# RRL
-Rebels Discord Bot
+# SmithyBot
+Hopefuly-will-operate-soon-SmithStory Discord Bot
