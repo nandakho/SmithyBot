@@ -78,8 +78,8 @@ client.on('message',message => {
            message.channel.sendMessage('Sorry, it is beyond my ability to resurrect '+args[1]);
            break;
        case 'ehp':
-       if(args[1]) {
-           if(args[2]) {
+       if(Number.isInteger(parseInt(args[1]))) {
+           if(Number.isInteger(parseInt(args[2]))) {
                var eHPH = args[1];
                var eHPD = args[2];
                var eHP1 = parseInt(eHPD)+1200;
@@ -90,13 +90,23 @@ client.on('message',message => {
                message.channel.sendMessage('eHP: '+eHPA);
                break;
            } else {
-               message.channel.sendMessage('Please define **Defense** value!');
-               break;
+               if(args[2]) {
+                   message.channel.sendMessage('**'+args[2]+'** is not a valid value!')
+                   break;
+               } else {
+                   message.channel.sendMessage('Please define **Defense** value!');
+                   break;
+               }
            }
         } else {
-            message.channel.sendMessage('Please define **HP** and **Defense** value!');
-            break;
-        }
+            if(args[1]) {
+                message.channel.sendMessage('**'+args[1]+'** is not a valid value!')
+                break;
+               } else {
+                   message.channel.sendMessage('Please define **HP** and **Defense** value!')
+                   break;
+               }
+            }
        case 'raid':
            if(args[1]) {
                switch(args[1].toLowerCase()){
