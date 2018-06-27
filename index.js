@@ -84,11 +84,11 @@ client.on('message',message => {
             var eHP2 = eHPD/eHP1;
             var eHP3 = 1-eHP2;
             var eHPF = eHPH/eHP3;
-            message.channel.sendMessage('HP: '+eHPH)
-            message.channel.sendMessage('Def: '+eHPD)
-            message.channel.sendMessage('Def+1200: '+eHP1)
-            message.channel.sendMessage('Def/Def+1200: '+eHP2)
-            message.channel.sendMessage('1-Def/Def+1200: '+eHP3)
+            message.channel.sendMessage('HP: '+eHPH);
+            message.channel.sendMessage('Def: '+eHPD);
+            message.channel.sendMessage('Def+1200: '+eHP1);
+            message.channel.sendMessage('Def/Def+1200: '+eHP2);
+            message.channel.sendMessage('1-Def/Def+1200: '+eHP3);
             message.channel.sendMessage('eHP: '+eHPF);
             break;
         case 'raid':
