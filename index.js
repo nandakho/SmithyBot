@@ -79,7 +79,7 @@ client.on('message',message => {
         case 'eHP':
             var eHPH = args[2];
             var eHPD = args[3];
-            message.channe.sendMessage('eHP: '+(eHPH/(1-(eHPD/(eHPD+1200)))));
+            message.channel.sendMessage('eHP: '+(eHPH/(1-(eHPD/(eHPD+1200)))));
             break;
         case 'raid':
             if(args[1]) {
