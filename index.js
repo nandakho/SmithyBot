@@ -7,7 +7,7 @@ const help = [
     "• !ping",
     "• !help",
     "• !raid",
-    "
+    "• !ehp",
     "```",
 ];
 const rhelp = [
