@@ -7,6 +7,7 @@ const help = [
     "• !ping",
     "• !help",
     "• !raid",
+    "
     "```",
 ];
 const rhelp = [
@@ -74,12 +75,15 @@ client.on('message',message => {
             message.channel.sendMessage(help);
             break;
         case 'resurrect':
-            message.channel.sendMessage('Sorry, it is beyond my ability to resurrect '+args[1])
+            message.channel.sendMessage('Sorry, it is beyond my ability to resurrect '+args[1]);
             break;
         case 'eHP':
+            message.channel.sendMessage('test success');
             var eHPH = args[1];
             var eHPD = args[2];
-            message.channel.sendMessage('eHP: ');
+            message.channel.sendMessage(eHPH);
+            message.channel.sendMessage(eHPD);
+            //message.channel.sendMessage('eHP: '+(eHPH/(1-(eHPD/(eHPD+1200)))));
             break;
         case 'raid':
             if(args[1]) {
