@@ -18,17 +18,10 @@ client.on('ready', () => {
    console.log('Ready');
  });
 
-var url = "http://smithstory.wikia.com/wiki/Recipes"
-request(url,function(err,resp,body){
-    var $ = cheerio.load(body);
-    var ch1 = $('.mw-collapsible-content .article-table sortable jquery-tablesorter');
-    var chAT = ch1.text();
-    console.log(chAT);
-})
-
 client.on('message',message => {
    var sender = message.author.username;
-   var sendrl = message.member.roles.find('name','RaidLeader');
+   var urlw = "https://raw.githubusercontent.com/nandakho/SmithyBot/master/WeaponRecipe/"
+   var urlf = "https://raw.githubusercontent.com/nandakho/SmithyBot/master/FoodRecipe/"
    if (message.author.equals(client.user)) return;
    
    if (!message.content.startsWith(prefix)) return;
@@ -37,25 +30,50 @@ client.on('message',message => {
 
    switch (args[0].toLowerCase()) {
        case 'food':
-           message.channel.sendMessage('To be added!');
-           break;
+           if(args[1]){
+               request(urlf+args[1],function(err,resp,body){
+                   var $ = cheerio.load(body);
+                   var fwrec = $.text();
+                   message.channel.sendMessage(frec);
+                })
+                break;
+            } else {
+                message.channel.sendMessage('Usage: r!food <#FoodID>');
+                break;
+            }
        case 'weapon':
-           message.channel.sendMessage('To be added!');
-           break;
+           if(args[1]){
+               request(urlw+args[1],function(err,resp,body){
+                   var $ = cheerio.load(body);
+                   var wrec = $.text();
+                   message.channel.sendMessage(wrec);
+                })
+                break;
+            } else {
+                message.channel.sendMessage('Usage: r!weapon <#WeaponID>');
+                break;
+            }
        case 'help':
            message.channel.sendMessage(help);
            break;
        case 'attack':
        if(Number.isInteger(parseInt(args[1]))) {
            if(Number.isInteger(parseInt(args[2]))) {
-               message.channel.sendMessage('To be added!');
+               var eHPH = args[1];
+               var eHPD = args[2];
+               var eHP1 = parseInt(eHPD)+1200;
+               var eHP2 = parseInt(eHPD)/eHP1;
+               var eHP3 = 1-eHP2;
+               var eHPF = parseInt(eHPH)/eHP3;
+               var eHPA = Math.round(eHPF*100)/100;
+               message.channel.sendMessage('eHP: '+eHPA);
                break;
            } else {
                if(args[2]) {
                    message.channel.sendMessage('**'+args[2]+'** is not a valid value!')
                    break;
                } else {
-                   message.channel.sendMessage('Please define a **valid** value!');
+                   message.channel.sendMessage('Please define **Defense** value!');
                    break;
                }
            }
@@ -64,12 +82,12 @@ client.on('message',message => {
                 message.channel.sendMessage('**'+args[1]+'** is not a valid value!')
                 break;
                } else {
-                   message.channel.sendMessage('Please define a **valid** value!')
+                   message.channel.sendMessage('Please define **HP** and **Defense** value!')
                    break;
                }
             }
        default:
-       message.channel.sendMessage("Command not found! Please use **!help** to seek help.");
+       message.channel.sendMessage("Command not found! Please use **r!help** to seek help.");
    }
 });
 
