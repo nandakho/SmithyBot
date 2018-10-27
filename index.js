@@ -61,7 +61,7 @@ client.on('message',message => {
            if(Number.isInteger(parseInt(args[2]))) {
                var eHPH = args[1];
                var eHPD = args[2];
-               var eHP1 = parseInt(eHPD)+1200;
+               var eHP1 = parseInt(eHPD)+12000;
                var eHP2 = parseInt(eHPD)/eHP1;
                var eHP3 = 1-eHP2;
                var eHPF = parseInt(eHPH)/eHP3;
