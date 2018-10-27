@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.2.1"
+    "cheerio": "^1.0.0-rc.2",
+    "discord.js": "^11.2.1",
+    "discord.js-commando": "^0.9.0",
+    "node-html-parser": "^1.1.6",
+    "request": "^2.87.0"
   }
 }
+
