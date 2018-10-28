@@ -91,7 +91,7 @@ client.on('message',message => {
                 break;
                } else {
                    message.channel.sendMessage('Please define <**Level**> <**Attack Level**> <**Rebirth**> value!')
-                   message.channel.sendMessage('Example: r!attack **999** **999** and **15** value!')
+                   message.channel.sendMessage('Example: r!attack **999** **999** **15**')
                    break;
                }
             }
