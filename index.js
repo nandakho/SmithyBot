@@ -59,35 +59,45 @@ client.on('message',message => {
        case 'attack':
        if(Number.isInteger(parseInt(args[1]))) {
            if(Number.isInteger(parseInt(args[2]))) {
-               var eHPH = args[1];
-               var eHPD = args[2];
-               var eHP1 = parseInt(eHPD)+12000;
-               var eHP2 = parseInt(eHPD)/eHP1;
-               var eHP3 = 1-eHP2;
-               var eHPF = parseInt(eHPH)/eHP3;
-               var eHPA = Math.round(eHPF*100)/100;
-               message.channel.sendMessage('eHP: '+eHPA);
-               break;
+              if(Number.isInteger(parseInt(args[3]))) {
+                 var eCLV = parseInt(args[1]);
+                 var eATK = parseInt(args[2]);
+                 var eRBT = parseInt(args[3]);
+                 var eBNS = 1+(parseInt(eRBT/10)*0.3);
+                 var eBATK = Math.floor((eCLV+(eCLV*Math.floor(eCLV/7)))*(1+(eATK*0.01))*(1+(eRBT*0.1))*eBNS);
+                 message.channel.sendMessage('Base Attack: '+eBATK);
+                 break;
+                } else {
+                    if(args[3]) {
+                        message.channel.sendMessage('**'+args[3]+'** is not a valid value!')
+                        break;
+                    } else {
+                        message.channel.sendMessage('Please define <**Rebirth**> value!')
+                        break;
+                    }
+                }
            } else {
-               if(args[2]) {
-                   message.channel.sendMessage('**'+args[2]+'** is not a valid value!')
-                   break;
-               } else {
-                   message.channel.sendMessage('Please define **Defense** value!');
-                   break;
-               }
-           }
+                if(args[2]) {
+                    message.channel.sendMessage('**'+args[2]+'** is not a valid value!')
+                    break;
+                } else {
+                    message.channel.sendMessage('Please define <**Attack Level**> value!');
+                    break;
+                }
+            }
         } else {
             if(args[1]) {
                 message.channel.sendMessage('**'+args[1]+'** is not a valid value!')
                 break;
                } else {
-                   message.channel.sendMessage('Please define **HP** and **Defense** value!')
+                   message.channel.sendMessage('Please define <**Level**> <**Attack Level**> <**Rebirth**> value!')
+                   message.channel.sendMessage('Example: r!attack **999** **999** and **15** value!')
                    break;
                }
             }
        default:
        message.channel.sendMessage("Command not found! Please use **r!help** to seek help.");
+       break;
    }
 });
 
