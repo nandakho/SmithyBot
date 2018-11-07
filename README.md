@@ -1,2 +1,2 @@
 # SmithyBot
-Hopefuly-will-operate-soon-SmithStory Discord Bot
+A SmithStory Discord Bot
