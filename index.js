@@ -33,7 +33,7 @@ client.on('message',message => {
            if(args[1]){
                request(urlf+args[1],function(err,resp,body){
                    var $ = cheerio.load(body);
-                   var fwrec = $.text();
+                   var frec = $.text();
                    message.channel.sendMessage(frec);
                 })
                 break;
